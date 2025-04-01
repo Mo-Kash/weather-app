@@ -2,6 +2,7 @@ import 'package:http/http.dart';
 import 'dart:convert';
 import 'package:intl/intl.dart';
 
+
 class WorldTime{
 
   late String location; //location name for the ui
@@ -12,28 +13,34 @@ class WorldTime{
 
   WorldTime({required this.location, required this.flag, required this.url });
 
-  Future<void> getTime() async{
+  Future<void> getTime({bool useDeviceTime = false}) async{
 
     try{
-      //make request
-      Response response = await get(Uri.parse("https://timeapi.io/api/time/current/zone?timeZone=$url"));
-      Map data = jsonDecode(response.body);
-      //print(data);
+      DateTime now;
+      if(useDeviceTime){
+        now = DateTime.now();
+      }
+      else{
+        //make request
+        Response response = await get(Uri.parse("https://timeapi.io/api/time/current/zone?timeZone=$url"));
+        Map data = jsonDecode(response.body);
+        //print(data);
 
-      //get properties from data
-      String datetime = data["dateTime"];
-      // print(datetime);
+        //get properties from data
+        String datetime = data["dateTime"];
+        // print(datetime);
 
-      //create DateTime object
-      DateTime now = DateTime.parse(datetime);
-
+        //create DateTime object
+        now = DateTime.parse(datetime);
+      }
       //set time property
       isDayTime = (now.hour>6 && now.hour<19) ? true: false;
       time = DateFormat.jm().format(now);
     }
     catch(e){
       print('Caught error: $e');
-      time = 'Could not get time data';
+      time = "Couldn't get time";
+      isDayTime = true;
     }
   }
 }
