@@ -2,7 +2,7 @@
 ## Installation
 1. Clone the repository:
    ```sh
-   [git clone https://github.com/Mo-Kash/weather-app.git](https://github.com/Mo-Kash/weather-app.git)
+   git clone https://github.com/Mo-Kash/weather-app.git
    cd weather-app
    ```
 2. Install dependencies:
