@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\DELL\StudioProjects\world_time"
+export "FLUTTER_ROOT=/home/mohit/development/flutter"
+export "FLUTTER_APPLICATION_PATH=/home/mohit/AndroidStudioProjects/World_time_app"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
